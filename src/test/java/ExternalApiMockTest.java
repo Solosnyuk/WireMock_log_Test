@@ -74,8 +74,10 @@ public class ExternalApiMockTest {
         logger.info("Тело ответа: {}", response.body().asPrettyString());
 
         try {
-            assertEquals("success", response.jsonPath().getString("status"), "Поле 'status' должно быть 'success'");
-            assertEquals("mock data", response.jsonPath().getString("data"), "Поле 'data' должно быть 'mock data'");
+            assertEquals("success", response.jsonPath()
+                    .getString("status"), "Поле 'status' должно быть 'success'");
+            assertEquals("mock data", response.jsonPath()
+                    .getString("data"), "Поле 'data' должно быть 'mock data'");
             logger.info("Данные валидны. Тест пройден успешно.");
         } catch (AssertionError e) {
             logger.error("Ошибка валидации данных: {}", e.getMessage());
